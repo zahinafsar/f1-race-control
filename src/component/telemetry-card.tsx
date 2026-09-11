@@ -1,4 +1,4 @@
-import telemetryWave from '../assets/race-control/telemetry-wave.svg'
+import { TelemetryChart } from './telemetry-chart'
 
 type TelemetryCardProps = {
   id: string
@@ -7,13 +7,15 @@ type TelemetryCardProps = {
   unit?: string
   highest: string
   lowest: string
+  series: number[]
+  curve: 'linear' | 'natural' | 'monotone'
 }
 
-export function TelemetryCard({ label, value, unit, highest, lowest }: TelemetryCardProps) {
+export function TelemetryCard({ id, label, value, unit, highest, lowest, series, curve }: TelemetryCardProps) {
   return (
-    <div className="flex h-28 min-h-24 bg-panel xl:h-auto xl:flex-1 xl:shrink-0">
+    <div className="flex min-h-28 bg-panel xl:h-auto xl:flex-1 xl:shrink-0">
       <div className="flex min-w-0 flex-1 flex-col justify-between p-3">
-        <h3 className="text-base font-black text-accent">{label}</h3>
+        <h3 className="text-sm font-black text-accent xl:text-base">{label}</h3>
         <div className="flex flex-wrap items-end justify-between gap-1">
           <div className="text-2xl leading-none font-black">
             {value}{unit ? <span className="ml-1 text-xs">{unit}</span> : null}
@@ -24,8 +26,8 @@ export function TelemetryCard({ label, value, unit, highest, lowest }: Telemetry
           </div>
         </div>
       </div>
-      <div className="w-2/5 shrink-0 overflow-hidden bg-panel-deep">
-        <img src={telemetryWave} alt="" width={206} height={110} className="h-full w-full object-cover" />
+      <div className="w-1/2 shrink-0 overflow-hidden bg-panel-deep xl:w-3/5">
+        <TelemetryChart id={id} series={series} curve={curve} unit={unit} />
       </div>
     </div>
   )

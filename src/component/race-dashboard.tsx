@@ -6,6 +6,7 @@ import { CircuitPanel } from './circuit-panel'
 import { RaceEvents } from './race-events'
 import { CarDiagnostics } from './car-diagnostics'
 import { DriverProfile } from './driver-profile'
+import { DriverSelector } from './driver-selector'
 import { TelemetryCard } from './telemetry-card'
 import { EngineTelemetry } from './engine-telemetry'
 import { WeatherStrip } from './weather-strip'
@@ -35,10 +36,12 @@ export function RaceDashboard() {
     <div className="dashboard-shell relative isolate min-h-screen">
       <a href="#race-dashboard" className="fixed top-3 left-3 z-50 -translate-y-24 bg-white px-4 py-3 font-extrabold text-panel-deep focus:translate-y-0">Skip to race dashboard</a>
       <div className="mx-auto w-full px-4 pb-4 xl:flex xl:h-screen xl:min-h-160 xl:flex-col">
-        <header className="flex h-24 shrink-0 items-start">
+        <header className="flex h-24 shrink-0 items-start justify-between gap-2">
           <a href="./" className="-ml-4 block shrink-0">
-            <img src={apexLogo} alt="Apex Racing" width={181} height={90} className="h-20 w-44 object-contain" />
+            <img src={apexLogo} alt="Apex Racing" width={181} height={90} className="h-14 w-32 object-contain sm:h-20 sm:w-44" />
           </a>
+          <DriverSelector />
+          <div className="hidden w-32 shrink-0 sm:block sm:w-44" />
         </header>
         <main id="race-dashboard" tabIndex={-1} className="xl:flex xl:min-h-0 xl:flex-1 xl:flex-col">
           <MobileTabs activeTab={activeTab} onTabChange={setActiveTab} />

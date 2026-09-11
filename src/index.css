@@ -1,0 +1,81 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Geist Variable', sans-serif;
+  --color-accent: #b684ff;
+  --color-panel: #351663;
+  --color-panel-deep: #251145;
+}
+
+@layer base {
+  :root {
+    font-family: var(--font-sans);
+    color: #fff;
+    background: #523993;
+    color-scheme: dark;
+  }
+
+  body {
+    margin: 0;
+    min-width: 280px;
+  }
+}
+
+@layer components {
+  .car-container {
+    container-type: size;
+  }
+
+  .car-model {
+    container-type: inline-size;
+    width: min(90cqw, 43.63636cqh);
+    max-width: 346px;
+    aspect-ratio: 288 / 660;
+  }
+
+  .car-image {
+    transition: filter 150ms;
+  }
+
+  .car-model:has(.tyre-hotspot:hover) .car-image,
+  .car-model:has(.tyre-hotspot:focus-within) .car-image {
+    filter: grayscale(1) brightness(0.5);
+  }
+
+  .tyre-hotspot {
+    z-index: 10;
+  }
+
+  .tyre-hotspot:hover,
+  .tyre-hotspot:focus-within {
+    z-index: 20;
+  }
+
+  .tyre-overlay {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 150ms, visibility 150ms;
+  }
+
+  .tyre-hotspot:hover .tyre-overlay,
+  .tyre-hotspot:focus-within .tyre-overlay {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .dashboard-shell {
+    background: radial-gradient(ellipse at center, #7e61cc 0%, #684db0 50%, #523993 100%);
+  }
+
+  .dashboard-shell::before {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    content: '';
+    pointer-events: none;
+    background-image: url('./assets/race-control/background-pattern.png');
+    background-position: center;
+    background-size: cover;
+    opacity: 0.2;
+  }
+}

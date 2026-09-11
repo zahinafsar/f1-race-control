@@ -1,0 +1,38 @@
+export const tyreOverlays = {
+  fl: {
+    width: 270,
+    height: 277,
+    tyreX: 0,
+    tyreY: 0,
+    tyreWidth: 56,
+    tooltipX: 15,
+    tooltipY: 193,
+  },
+  fr: {
+    width: 271,
+    height: 276,
+    tyreX: 215,
+    tyreY: 0,
+    tyreWidth: 56,
+    tooltipX: 0,
+    tooltipY: 192,
+  },
+  rl: {
+    width: 267,
+    height: 320,
+    tyreX: 0,
+    tyreY: 228,
+    tyreWidth: 61,
+    tooltipX: 12,
+    tooltipY: 0,
+  },
+  rr: {
+    width: 267,
+    height: 320,
+    tyreX: 208,
+    tyreY: 228,
+    tyreWidth: 58,
+    tooltipX: 0,
+    tooltipY: 0,
+  },
+}

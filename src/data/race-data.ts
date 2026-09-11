@@ -14,7 +14,7 @@ export const raceStatistics = [
 ]
 
 export const driverMetrics = [
-  { id: 'breathing', label: 'Breath Per Minute', value: '65', unit: 'BPM', highest: '130 bpm', lowest: '48 bpm' },
+  { id: 'breathing', label: 'Breath Rate', value: '65', unit: 'BPM', highest: '130', lowest: '48' },
   { id: 'heart-rate', label: 'Heart Rate', value: '12', highest: '14', lowest: '8' },
   { id: 'stress', label: 'Stress Level', value: '51', highest: '58', lowest: '45' },
 ]

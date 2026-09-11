@@ -14,7 +14,7 @@ type TelemetryCardProps = {
 export function TelemetryCard({ id, label, value, unit, highest, lowest, series, curve }: TelemetryCardProps) {
   return (
     <div className="flex min-h-28 bg-panel xl:h-auto xl:flex-1 xl:shrink-0">
-      <div className="flex min-w-0 flex-1 flex-col justify-between p-3">
+      <div className="flex min-w-0 flex-1 flex-col justify-between p-4">
         <h3 className="text-sm font-black text-accent xl:text-base">{label}</h3>
         <div className="flex flex-wrap items-end justify-between gap-1">
           <div className="text-2xl leading-none font-black">

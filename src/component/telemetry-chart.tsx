@@ -55,7 +55,7 @@ export function TelemetryChart({ id, series, curve, unit }: TelemetryChartProps)
   const lowest = Math.min(...series)
   const highest = Math.max(...series)
   const padding = (highest - lowest) * 0.3
-  const valueTicks = [Math.round(lowest), Math.round((lowest + highest) / 2), Math.round(highest)]
+  const valueTicks = [...new Set([Math.round(lowest), Math.round((lowest + highest) / 2), Math.round(highest)])]
   const timeTicks = [0.16, 0.5, 0.84].map((fraction) => Math.round(lastIndex * fraction))
 
   function renderTooltip({ active, payload }: TooltipContentProps) {

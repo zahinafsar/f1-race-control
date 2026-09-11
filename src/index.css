@@ -22,6 +22,21 @@
 }
 
 @layer components {
+  @keyframes race-event-arrival {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .race-event-arrival {
+    animation: race-event-arrival 320ms ease-out;
+  }
+
   .car-container {
     container-type: size;
   }

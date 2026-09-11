@@ -2,7 +2,7 @@ import type { TyreCondition } from '../data/tyre-condition'
 
 export type TyreTooltipProps = {
   label: string
-  temperature: number
+  temperature: string
   pressure: string
   condition: TyreCondition
 }

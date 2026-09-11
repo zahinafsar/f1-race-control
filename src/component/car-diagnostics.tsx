@@ -1,8 +1,6 @@
-import raceCar from '../assets/race-control/race-car.png'
 import raceCarGlow from '../assets/race-control/race-car-glow.png'
 import { tyreOverlays } from '../data/tyre-overlays'
-import { tyres } from '../data/race-data'
-import { getTyreCondition } from '../data/tyre-condition'
+import { useCar } from '../context/car-hook'
 import { FrontLeftTyre } from './front-left-tyre'
 import { FrontRightTyre } from './front-right-tyre'
 import { RearLeftTyre } from './rear-left-tyre'
@@ -20,15 +18,16 @@ function carUnits(pixels: number) {
 }
 
 export function CarDiagnostics() {
+  const { image, tyres } = useCar()
+
   return (
     <div className="car-container flex h-160 items-center justify-center xl:h-full xl:min-h-0">
       <div className="car-model relative shrink-0">
         <img src={raceCarGlow} alt="" width={288} height={660} className="pointer-events-none absolute inset-0 h-full w-full opacity-70 blur-2xl" />
-        <img src={raceCar} alt="Top view of the racing car" width={288} height={660} className="car-image pointer-events-none relative h-full w-full" />
+        <img src={image} alt="Top view of the racing car" width={288} height={660} className="car-image pointer-events-none relative h-full w-full" />
         {tyres.map((tyre) => {
           const overlay = tyreOverlays[tyre.id]
           const TyreComponent = tyreComponents[tyre.id]
-          const condition = getTyreCondition(tyre.temperature, tyre.pressure)
 
           return (
             <div
@@ -49,7 +48,7 @@ export function CarDiagnostics() {
                   height: carUnits(overlay.height),
                 }}
               >
-                <TyreComponent label={tyre.label} temperature={tyre.temperature} pressure={tyre.pressure} condition={condition} />
+                <TyreComponent label={tyre.label} temperature={tyre.temperature} pressure={tyre.pressure} condition={tyre.condition} />
                 <div
                   className="pointer-events-auto absolute"
                   style={{ left: carUnits(overlay.tooltipX), top: carUnits(overlay.tooltipY), width: carUnits(255), height: carUnits(84) }}

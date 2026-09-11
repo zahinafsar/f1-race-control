@@ -15,21 +15,22 @@ export const tyreHighlightClasses = {
   critical: 'fill-red-500 stroke-red-300',
 }
 
-export function getTyreCondition(temperature: number, pressure: string): TyreCondition {
-  const pressureValue = Number(pressure)
+export function getTyreCondition(t: string, p: string): TyreCondition {
+  const temperature = Number(t);
+  const pressure = Number(p);
 
   if (
     temperature >= demoTyreLimits.temperatureCritical ||
-    pressureValue <= demoTyreLimits.pressureCriticalLow ||
-    pressureValue >= demoTyreLimits.pressureCriticalHigh
+    pressure <= demoTyreLimits.pressureCriticalLow ||
+    pressure >= demoTyreLimits.pressureCriticalHigh
   ) {
     return 'critical'
   }
 
   if (
     temperature >= demoTyreLimits.temperatureWarning ||
-    pressureValue <= demoTyreLimits.pressureWarningLow ||
-    pressureValue >= demoTyreLimits.pressureWarningHigh
+    pressure <= demoTyreLimits.pressureWarningLow ||
+    pressure >= demoTyreLimits.pressureWarningHigh
   ) {
     return 'warning'
   }

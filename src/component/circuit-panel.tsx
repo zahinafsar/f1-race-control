@@ -39,7 +39,7 @@ export function CircuitPanel() {
         <div className="flex min-w-0 flex-1 flex-col p-4">
           <div className="mb-3 flex shrink-0 items-center justify-end gap-2 text-xs font-extrabold">
             <span>{circuit}</span>
-            <img src={germanyFlag} width={14} height={9} className="h-2 w-3 shrink-0" alt="Germany" />
+            <img src={germanyFlag} width={14} height={9} className="h-2 w-3 shrink-0" />
           </div>
           <div className="min-h-0 flex-1">
             <svg viewBox="0 0 280 280" className="h-full w-full">

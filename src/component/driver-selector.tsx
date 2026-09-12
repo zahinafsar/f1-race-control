@@ -17,7 +17,7 @@ export function DriverSelector() {
                 onClick={() => selectPlayer(driver.id)}
                 className={`block size-8 cursor-pointer overflow-hidden rounded-full ring-2 transition sm:size-10 ${isSelected ? 'ring-accent' : 'opacity-70 ring-white hover:opacity-100'}`}
               >
-                <img src={driverPortraits[driver.id]} alt={driver.shortName} width={308} height={376} className="h-full w-full object-cover object-top" />
+                <img src={driverPortraits[driver.id]} width={308} height={376} className="h-full w-full object-cover object-top" />
               </button>
             </li>
           )

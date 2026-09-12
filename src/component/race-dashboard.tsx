@@ -49,7 +49,7 @@ export function RaceDashboard() {
       <div className="mx-auto w-full px-4 pb-4 xl:flex xl:h-screen xl:min-h-160 xl:flex-col">
         <header className="flex h-24 shrink-0 items-start justify-between gap-2">
           <a href="./" className="-ml-4 block shrink-0">
-            <img src={apexLogo} alt="Apex Racing" width={181} height={90} className="h-14 w-32 object-contain sm:h-20 sm:w-44" />
+            <img src={apexLogo} width={181} height={90} className="h-14 w-32 object-contain sm:h-20 sm:w-44" />
           </a>
           <DriverSelector />
           <div className="hidden w-32 shrink-0 sm:block sm:w-44" />
@@ -70,7 +70,6 @@ export function RaceDashboard() {
               <div className="mt-4 grid gap-3 md:grid-cols-3 xl:mt-0 xl:flex xl:min-h-0 xl:flex-1 xl:flex-col xl:overflow-y-auto">
                 {vitalCards.map((card) => {
                   const series = vitals[card.id]
-
                   return (
                     <TelemetryCard
                       key={card.id}

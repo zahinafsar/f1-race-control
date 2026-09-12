@@ -8,8 +8,6 @@ export type TyreReading = {
   temperature: string
   pressure: string
   condition: TyreCondition
-  x: number
-  y: number
 }
 
 export const carLimits = { rpm: 16720, engine: 135, fuel: 100, brakes: 1110 }

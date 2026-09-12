@@ -37,47 +37,6 @@
     animation: race-event-arrival 320ms ease-out;
   }
 
-  .car-container {
-    container-type: size;
-  }
-
-  .car-model {
-    container-type: inline-size;
-    width: min(90cqw, 43.63636cqh);
-    max-width: 346px;
-    aspect-ratio: 288 / 660;
-  }
-
-  .car-image {
-    transition: filter 150ms;
-  }
-
-  .car-model:has(.tyre-hotspot:hover) .car-image,
-  .car-model:has(.tyre-hotspot:focus-within) .car-image {
-    filter: grayscale(1) brightness(0.5);
-  }
-
-  .tyre-hotspot {
-    z-index: 10;
-  }
-
-  .tyre-hotspot:hover,
-  .tyre-hotspot:focus-within {
-    z-index: 20;
-  }
-
-  .tyre-overlay {
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 150ms, visibility 150ms;
-  }
-
-  .tyre-hotspot:hover .tyre-overlay,
-  .tyre-hotspot:focus-within .tyre-overlay {
-    visibility: visible;
-    opacity: 1;
-  }
-
   .dashboard-shell {
     background: radial-gradient(ellipse at center, #7e61cc 0%, #684db0 50%, #523993 100%);
   }

@@ -1,3 +1,4 @@
+import type { LucideIcon } from 'lucide-react'
 import { TelemetryChart } from './telemetry-chart'
 
 type TelemetryCardProps = {
@@ -5,17 +6,21 @@ type TelemetryCardProps = {
   label: string
   value: string
   unit?: string
+  icon: LucideIcon
   highest: string
   lowest: string
   series: number[]
   curve: 'linear' | 'natural' | 'monotone'
 }
 
-export function TelemetryCard({ id, label, value, unit, highest, lowest, series, curve }: TelemetryCardProps) {
+export function TelemetryCard({ id, label, value, unit, icon: CardIcon, highest, lowest, series, curve }: TelemetryCardProps) {
   return (
     <div className="flex min-h-28 bg-panel xl:h-auto xl:flex-1 xl:shrink-0">
       <div className="flex min-w-0 flex-1 flex-col justify-between p-4">
-        <h3 className="text-sm font-black text-accent xl:text-base">{label}</h3>
+        <h3 className="flex items-center gap-2 text-sm font-black text-accent xl:text-base">
+          <CardIcon className="size-4 shrink-0 xl:size-5" strokeWidth={2.5} />
+          {label}
+        </h3>
         <div className="flex flex-wrap items-end justify-between gap-1">
           <div className="text-2xl leading-none font-black">
             {value}{unit ? <span className="ml-1 text-xs">{unit}</span> : null}

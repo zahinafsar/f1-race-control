@@ -1,3 +1,4 @@
+import { Brain, HeartPulse, Waves, type LucideIcon } from 'lucide-react'
 import { useState, type ReactNode } from 'react'
 import apexLogo from '../assets/race-control/apex-logo.png'
 import { type DashboardTab } from '../data/race-data'
@@ -13,10 +14,10 @@ import { TelemetryCard } from './telemetry-card'
 import { EngineTelemetry } from './engine-telemetry'
 import { WeatherStrip } from './weather-strip'
 
-const vitalCards: { id: VitalId; label: string; unit?: string; curve: 'linear' | 'natural' | 'monotone' }[] = [
-  { id: 'heartRate', label: 'Heart Rate', unit: 'BPM', curve: 'linear' },
-  { id: 'breathing', label: 'Breath Rate', curve: 'natural' },
-  { id: 'stress', label: 'Stress Level', curve: 'monotone' },
+const vitalCards: { id: VitalId; label: string; unit?: string; icon: LucideIcon; curve: 'linear' | 'natural' | 'monotone' }[] = [
+  { id: 'heartRate', label: 'Heart Rate', unit: 'BPM', icon: HeartPulse, curve: 'linear' },
+  { id: 'breathing', label: 'Breath Rate', icon: Waves, curve: 'natural' },
+  { id: 'stress', label: 'Stress Level', icon: Brain, curve: 'monotone' },
 ]
 
 type DashboardPanelProps = {

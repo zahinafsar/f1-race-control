@@ -1,10 +1,11 @@
+import { Disc3, Fuel, Gauge, Thermometer, type LucideIcon } from "lucide-react";
 import { carLimits, useCar, type CarMetricId } from "../context/car-hook";
 
-const metricDetails: Record<CarMetricId, { label: string; unit: string }> = {
-  rpm: { label: "RPM", unit: "" },
-  engine: { label: "ENGINE TEMP", unit: " C" },
-  fuel: { label: "FUEL", unit: "%" },
-  brakes: { label: "BRAKE TEMP", unit: " C" },
+const metricDetails: Record<CarMetricId, { label: string; unit: string; icon: LucideIcon }> = {
+  rpm: { label: "RPM", unit: "", icon: Gauge },
+  engine: { label: "ENGINE TEMP", unit: " C", icon: Thermometer },
+  fuel: { label: "FUEL", unit: "%", icon: Fuel },
+  brakes: { label: "BRAKE TEMP", unit: " C", icon: Disc3 },
 };
 
 export function EngineTelemetry() {
@@ -14,12 +15,16 @@ export function EngineTelemetry() {
     <div className="flex h-36 flex-col justify-between bg-panel p-4">
       {(Object.keys(metricDetails) as CarMetricId[]).map((id) => {
         const details = metricDetails[id];
+        const MetricIcon = details.icon;
         const fill = metrics[id];
 
         return (
           <div key={id}>
             <div className="mb-1 flex justify-between text-xs leading-none font-black text-accent">
-              <span>{details.label}</span>
+              <span className="flex items-center gap-1.5">
+                <MetricIcon className="size-3.5 shrink-0" strokeWidth={2.5} />
+                {details.label}
+              </span>
               <span>
                 {Math.round((fill / 100) * carLimits[id])}
                 {details.unit}

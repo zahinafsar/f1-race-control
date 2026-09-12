@@ -29,8 +29,8 @@ export function CircuitPanel() {
           <div className="space-y-3 font-extrabold">
             {details.map((detail) => (
               <div key={detail.label}>
-                <div className="text-xs leading-tight">{detail.label}</div>
-                <div className="mt-1 text-base leading-none text-accent">
+                <div className="text-xs leading-tight text-accent">{detail.label}</div>
+                <div className="mt-1 text-base leading-none">
                   {detail.value}
                 </div>
               </div>

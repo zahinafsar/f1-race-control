@@ -1,6 +1,8 @@
 import { createContext, useContext } from 'react'
 
-type WeatherMetric = { label: string; value: string }
+export type WeatherMetricId = 'airTemp' | 'cloud' | 'humidity' | 'pressure' | 'wind'
+
+export type WeatherMetric = { id: WeatherMetricId; label: string; value: string }
 
 export const WeatherContext = createContext<WeatherMetric[] | null>(null)
 

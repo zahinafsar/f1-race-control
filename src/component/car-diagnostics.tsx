@@ -93,11 +93,13 @@ export function CarDiagnostics() {
   return (
     <div className="flex h-160 items-center justify-center xl:h-full xl:min-h-0">
       <div className="relative h-full shrink-0">
-        <img src={raceCarGlow} width={288} height={660} className="pointer-events-none absolute inset-0 h-full w-full blur-md" />
+        <img src={raceCarGlow} width={288} height={660} loading="lazy" decoding="async" className="pointer-events-none absolute inset-0 h-full w-full blur-md" />
         <img
           src={image}
           width={288}
           height={660}
+          loading="lazy"
+          decoding="async"
           className={`pointer-events-none relative block h-full w-auto transition-[filter] duration-150 ${active ? 'grayscale brightness-50' : ''}`}
         />
         {tyres.map((tyre) => (

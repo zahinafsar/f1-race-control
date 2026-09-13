@@ -44,6 +44,8 @@ export function CircuitPanel() {
               src={germanyFlag}
               width={14}
               height={9}
+              loading="lazy"
+              decoding="async"
               className="h-2 w-3 shrink-0"
             />
           </div>
